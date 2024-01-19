@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+  <link rel="stylesheet" href="Movies App.css">
+</head>
+<body>
+    <div class="main-heading text-center">
+        <h1>Movies App!</h1>
+    
+        <form id="add-movie-form">
+          <div class="form-group">
+            <label for="title">Title
+            <input type="text" required id="title" class="form-title-input">
+          </div>
+          
+          <div class="form-group">
+            <label for="rating">Rating
+            <input type="number" required  min="0" max="10" id="rating" class="form-rating-input">
+          </div>
+            
+          <div class="form-group">
+            <button type="submit" class="btn submit-btn">Submit</button>
+          </div>
+        </form>
+      </div>
+      <br>
+      <table class="table movies-table">
+        <thead class="movies-thead">
+          <tr>
+            <th scope="col">Title <i id="title" class="fas fa-sort-down"></i></th>
+    
+            <th scope="col">Rating <i id="rating" class="fas fa-sort-down"></i></th>
+            <th scope="col">Delete </i></th>
+          </tr>
+        </thead>
+        <tbody id="movie-table-body">
+          
+        </tbody>
+      </table>
+    
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+    <script src="Movies App.js"></script>  
+</body>
+</html>
