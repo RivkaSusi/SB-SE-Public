@@ -1,0 +1,53 @@
+<!--Base template with slots for page title and content-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>
+    Blogly {% block title %}{% endblock %}
+  </title>
+  <!--Connect Bootstrap and stylesheet-->
+  <link rel="stylesheet" href="https://unpkg.com/bootstrap/dist/css/bootstrap.css">
+  <link rel="stylesheet" href="/static/style.css">
+</head>
+
+<body>
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <a class="navbar-brand" href="/">Blogly</a>
+    <ul class="navbar-nav">
+      <li class="nav-item"><a class="nav-link" href="/users">Users</a></li>
+    </ul>
+    <ul class="navbar-nav">
+      <li class="nav-item"><a class="nav-link" href="/tags">Tags</a></li>
+    </ul>
+    <ul class="navbar-nav ml-auto">
+      <li class="nav-item">
+        <a class="btn btn-sm btn-secondary" href="/users/new">Add user</a>
+      </li>
+      <li class="nav-item ml-2">
+        <a class="btn btn-sm btn-secondary" href="/tags/new">Add tag</a>
+      </li>
+    </ul>
+  </nav>
+  <div class="container mt-5">
+    {% for msg in get_flashed_messages() %}
+    <div class="alert alert-info">{{ msg }}</div>
+    {% endfor %}
+
+    {% block content %}
+    <!-- put the content here -->
+    {% endblock %}
+  </div>
+</body>
+
+</html>
+
+
+
+<!--NOTE FOR SELF - Jinja template system for Python, used by Flask:
+
+. {{lucky_num}} is replaced with the value of 'lucky_num' passed in route when rendering e.g., return render_template("lucky.html", lucky_num=num)
+
+. {% %} blocks e.g., {% for my_item in my_collection %} and end with {% endfor %} is a for loop,  {% block content %} put the content here {% endblock %} is a content block
+-->
